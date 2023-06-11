@@ -2,3 +2,1295 @@
   [1m[35m (112.5ms)[0m  [1m[35mCREATE DATABASE "pract_project_test" ENCODING = 'unicode'[0m
   [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "pract_project_development" ENCODING = 'unicode'[0m
   [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "pract_project_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2023-06-10 21:32:34 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.3ms | Allocations: 582)
+Completed 200 OK in 30ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 6573)
+
+
+Started GET "/" for ::1 at 2023-06-10 21:35:23 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 278)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 1027)
+
+
+Started GET "/users" for ::1 at 2023-06-10 21:35:30 -0400
+Processing by UsersController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 10)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 679)
+
+
+Started GET "/users" for ::1 at 2023-06-10 21:38:29 -0400
+Processing by UsersController#index as */*
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 199)
+
+
+Started POST "/users" for ::1 at 2023-06-10 21:39:33 -0400
+
+AbstractController::ActionNotFound - The action 'create' could not be found for UsersController:
+
+Started POST "/users" for ::1 at 2023-06-10 21:43:36 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"saif", "age"=>"30"}}
+Completed 500 Internal Server Error in 3ms (Allocations: 2957)
+
+
+
+NameError - uninitialized constant UsersController::User
+    user=User.new(user_params)
+         ^^^^:
+  app/controllers/users_controller.rb:13:in `create'
+
+Started POST "/users" for ::1 at 2023-06-10 21:44:13 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"saif", "age"=>"30"}}
+Completed 500 Internal Server Error in 3ms (Allocations: 2878)
+
+
+
+NameError - uninitialized constant UsersController::User
+    user=User.new(user_params)
+         ^^^^:
+  app/controllers/users_controller.rb:13:in `create'
+
+Started POST "/users" for ::1 at 2023-06-10 21:44:31 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"saif", "age"=>"30"}}
+Completed 200 OK in 1ms (Views: 0.4ms | Allocations: 298)
+
+
+Started GET "/users/1" for ::1 at 2023-06-10 21:45:18 -0400
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"name"=>"saif", "age"=>"30"}, "id"=>"1"}
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 262)
+
+
+Started GET "/users/2" for ::1 at 2023-06-10 21:45:23 -0400
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"name"=>"saif", "age"=>"30"}, "id"=>"2"}
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 151)
+
+
+Started GET "/users/3" for ::1 at 2023-06-10 21:45:29 -0400
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"name"=>"saif", "age"=>"30"}, "id"=>"3"}
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 151)
+
+
+  [1m[35m (33.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3408628373774835015)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20230611115834)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "age" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230611115834"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-06-11 12:01:37.660592"], ["updated_at", "2023-06-11 12:01:37.660592"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3408628373774835015)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "asmaa"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "asmaa"], ["age", 27], ["created_at", "2023-06-11 12:04:17.510704"], ["updated_at", "2023-06-11 12:04:17.510704"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "saif"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "saif"], ["age", 30], ["created_at", "2023-06-11 12:04:17.515765"], ["updated_at", "2023-06-11 12:04:17.515765"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "ali"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/users" for ::1 at 2023-06-11 08:07:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 18ms (Views: 6.8ms | ActiveRecord: 4.6ms | Allocations: 7234)
+
+
+Started GET "/users/1" for ::1 at 2023-06-11 08:07:10 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 3861)
+
+
+
+NameError - undefined local variable or method `id' for #<UsersController:0x0000000000ab18>
+    user=User.find(params[id])
+                          ^^:
+  app/controllers/users_controller.rb:8:in `show'
+
+Started POST "/__better_errors/a5f474d8b865d333/variables" for ::1 at 2023-06-11 08:07:11 -0400
+Started GET "/users/2" for ::1 at 2023-06-11 08:08:50 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 3727)
+
+
+
+NameError - undefined local variable or method `id' for #<UsersController:0x0000000000ac08>
+    user=User.find(params[id])
+                          ^^:
+  app/controllers/users_controller.rb:8:in `show'
+
+Started POST "/__better_errors/24a82474c1a7d752/variables" for ::1 at 2023-06-11 08:08:50 -0400
+Started GET "/users/3" for ::1 at 2023-06-11 08:08:58 -0400
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"name"=>"saif", "age"=>"30"}, "id"=>"3"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 3681)
+
+
+
+NameError - undefined local variable or method `id' for #<UsersController:0x0000000000acf8>
+    user=User.find(params[id])
+                          ^^:
+  app/controllers/users_controller.rb:8:in `show'
+
+Started GET "/users" for ::1 at 2023-06-11 08:09:18 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"name"=>"saif", "age"=>"30"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 1042)
+
+
+Started GET "/users/2" for ::1 at 2023-06-11 08:09:34 -0400
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"name"=>"saif", "age"=>"30"}, "id"=>"2"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 3682)
+
+
+
+NameError - undefined local variable or method `id' for #<UsersController:0x0000000000adc0>
+    user=User.find(params[id])
+                          ^^:
+  app/controllers/users_controller.rb:8:in `show'
+
+Started GET "/users/2" for ::1 at 2023-06-11 08:11:17 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 3.3ms | Allocations: 7072)
+
+
+Started GET "/users/1" for ::1 at 2023-06-11 08:11:25 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 676)
+
+
+Started GET "/users/2" for ::1 at 2023-06-11 08:11:31 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 655)
+
+
+Started POST "/users" for ::1 at 2023-06-11 08:12:08 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"ali", "age"=>"33"}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 327)
+
+
+Started GET "/users" for ::1 at 2023-06-11 08:12:29 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"name"=>"ali", "age"=>"33"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 918)
+
+
+Started POST "/users" for ::1 at 2023-06-11 08:12:43 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"ali", "age"=>"33"}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 204)
+
+
+Started POST "/users" for ::1 at 2023-06-11 08:14:51 -0400
+
+SyntaxError - syntax error, unexpected end-of-input, expecting `end':
+  app/controllers/users_controller.rb:25:in `'
+
+Started POST "/users" for ::1 at 2023-06-11 08:15:04 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"ali", "age"=>"33"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "ali"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ali"], ["age", 33], ["created_at", "2023-06-11 12:15:04.694779"], ["updated_at", "2023-06-11 12:15:04.694779"]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 4.4ms | Allocations: 7309)
+
+
+Started GET "/users" for ::1 at 2023-06-11 08:15:16 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"name"=>"ali", "age"=>"33"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1033)
+
+
+Started GET "/users" for ::1 at 2023-06-11 08:15:29 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 977)
+
+
+Started GET "/users" for ::1 at 2023-06-11 08:16:23 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"name"=>"ali"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 972)
+
+
+Started GET "/users" for ::1 at 2023-06-11 08:16:33 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 972)
+
+
+Started POST "/users" for ::1 at 2023-06-11 08:16:51 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"ali"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "ali"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 422 Unprocessable Entity in 8ms (ActiveRecord: 0.9ms | Allocations: 4753)
+
+
+
+ActiveRecord::RecordInvalid - Validation failed: Name has already been taken, Age can't be blank:
+  app/controllers/users_controller.rb:16:in `create'
+
+Started DELETE "/users/3" for ::1 at 2023-06-11 08:20:40 -0400
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:34:in `destroy'
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/users_controller.rb:35:in `destroy'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:36:in `destroy'
+Completed 200 OK in 13ms (Views: 1.5ms | ActiveRecord: 4.7ms | Allocations: 5729)
+
+
+Started DELETE "/users/2" for ::1 at 2023-06-11 08:21:01 -0400
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"name"=>"ali", "age"=>"31"}, "id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:34:in `destroy'
+  [1m[36mUser Destroy (1.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:35:in `destroy'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:36:in `destroy'
+Completed 200 OK in 9ms (Views: 1.7ms | ActiveRecord: 2.9ms | Allocations: 1709)
+
+
+Started PATCH "/users/2" for ::1 at 2023-06-11 08:21:30 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"age"=>"31"}, "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.5ms | Allocations: 1388)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=2:
+  app/controllers/users_controller.rb:24:in `update'
+
+Started PATCH "/users/1" for ::1 at 2023-06-11 08:21:37 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"age"=>"31"}, "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.8ms | Allocations: 952)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/controllers/users_controller.rb:25:in `update'
+
+Started PATCH "/users/1" for ::1 at 2023-06-11 08:21:43 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"name"=>"asmaa", "age"=>"31"}, "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.6ms | Allocations: 943)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/controllers/users_controller.rb:25:in `update'
+
+Started PATCH "/users/1" for ::1 at 2023-06-11 08:23:55 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"name"=>"asmaa", "age"=>"31"}, "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "asmaa"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "age" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["age", 31], ["updated_at", "2023-06-11 12:23:55.900797"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 4.7ms | Allocations: 7693)
+
+
+Started PATCH "/users" for ::1 at 2023-06-11 08:24:03 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/users"):
+  
+Started GET "/users" for ::1 at 2023-06-11 08:24:08 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"name"=>"asmaa", "age"=>"31"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 969)
+
+
+Started GET "/users" for ::1 at 2023-06-11 08:26:55 -0400
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3163)
+
+
+
+ActionView::MissingTemplate - Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/asmaagamal/Desktop/APP ACADEMY/c_p/pract_project/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.4.0/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.5/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.5/app/views"
+Did you mean?  rails/conductor/action_mailbox/inbound_emails/index
+               layouts/rails/conductor
+               rails/conductor/action_mailbox/inbound_emails/new
+               rails/conductor/action_mailbox/inbound_emails/sources/new
+               layouts/turbo_rails/frame
+               layouts/mailer:
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/6b70d248d1343403/variables" for ::1 at 2023-06-11 08:26:55 -0400
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):61:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 08:27:52 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 750.1ms | Allocations: 75124)
+Completed 200 OK in 753ms (Views: 752.8ms | ActiveRecord: 0.0ms | Allocations: 76050)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:02:26 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 26.6ms | Allocations: 5212)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 6979)
+Completed 200 OK in 34ms (Views: 32.1ms | ActiveRecord: 15.6ms | Allocations: 8726)
+
+
+Started POST "/users" for ::1 at 2023-06-11 10:03:07 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"saif", "age"=>"30"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "saif"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "saif"], ["age", 30], ["created_at", "2023-06-11 14:03:07.421263"], ["updated_at", "2023-06-11 14:03:07.421263"]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 3.0ms | Allocations: 3219)
+
+
+Started POST "/users" for ::1 at 2023-06-11 10:03:17 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"ahmed", "age"=>"30"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "ahmed"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ahmed"], ["age", 30], ["created_at", "2023-06-11 14:03:17.628511"], ["updated_at", "2023-06-11 14:03:17.628511"]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 2802)
+
+
+Started POST "/users" for ::1 at 2023-06-11 10:03:25 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"omnia", "age"=>"30"}}
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "omnia"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "omnia"], ["age", 30], ["created_at", "2023-06-11 14:03:25.440821"], ["updated_at", "2023-06-11 14:03:25.440821"]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 5.1ms | Allocations: 2801)
+
+
+Started PATCH "/users/6" for ::1 at 2023-06-11 10:03:44 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"name"=>"omnia", "age"=>"26"}, "id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "omnia"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "age" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["age", 26], ["updated_at", "2023-06-11 14:03:44.021143"], ["id", 6]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 4743)
+
+
+Started PATCH "/users/1" for ::1 at 2023-06-11 10:03:56 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"name"=>"asmaa", "age"=>"27"}, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["name", "asmaa"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "age" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["age", 27], ["updated_at", "2023-06-11 14:03:56.056555"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 3.9ms | Allocations: 3389)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:03:58 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 621)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 1966)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.3ms | Allocations: 2205)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:04:36 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 893)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 2607)
+Completed 200 OK in 33ms (Views: 32.8ms | ActiveRecord: 0.2ms | Allocations: 3456)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:04:37 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 621)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 1940)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 2200)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:04:38 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 621)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 1953)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.3ms | Allocations: 2186)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:04:38 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 621)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 1935)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.2ms | Allocations: 2168)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:04:51 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 894)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2606)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 3459)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:05:16 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 891)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2617)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms | Allocations: 3491)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:16:24 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 289)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2003)
+Completed 200 OK in 7ms (Views: 6.9ms | Allocations: 2877)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:16:57 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/_table.html.erb (Duration: 2.0ms | Allocations: 4437)
+  Rendered users/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 4855)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 4940)
+Completed 500 Internal Server Error in 5ms (Allocations: 5805)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/users/_table.html.erb:7
+  app/views/users/index.html.erb:35
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/63d02fb3c4d89b16/variables" for ::1 at 2023-06-11 10:16:57 -0400
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:18:35 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/_table.html.erb (Duration: 1.9ms | Allocations: 4372)
+  Rendered users/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 4792)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 4877)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 5741)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/users/_table.html.erb:7
+  app/views/users/index.html.erb:35
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/40d80a96c6501174/variables" for ::1 at 2023-06-11 10:18:35 -0400
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:18:36 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/_table.html.erb (Duration: 2.5ms | Allocations: 4260)
+  Rendered users/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 4332)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 4412)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 4687)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/users/_table.html.erb:7
+  app/views/users/index.html.erb:35
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/17b1a5535c6cf6ce/variables" for ::1 at 2023-06-11 10:18:36 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:18:37 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/_table.html.erb (Duration: 2.6ms | Allocations: 4259)
+  Rendered users/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 4331)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 4411)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 4685)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/users/_table.html.erb:7
+  app/views/users/index.html.erb:35
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/3fd6ce1d6a1ccb33/variables" for ::1 at 2023-06-11 10:18:37 -0400
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:19:19 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 3305)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3393)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 4259)
+
+
+
+ActionView::MissingTemplate - Missing partial shared/_table with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/asmaagamal/Desktop/APP ACADEMY/c_p/pract_project/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.4.0/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.5/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.5/app/views"
+Did you mean?  active_storage/blobs/blob
+               action_text/contents/content
+               layouts/action_text/contents/content
+               action_text/attachment_galleries/attachment_gallery
+               /table
+               action_text/attachables/missing_attachable:
+  app/views/users/index.html.erb:35
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/741cc7d3301db504/variables" for ::1 at 2023-06-11 10:19:19 -0400
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:20:05 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 3118)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3206)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 4070)
+
+
+
+ActionView::MissingTemplate - Missing partial shared/_table with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/asmaagamal/Desktop/APP ACADEMY/c_p/pract_project/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.4.0/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.5/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.5/app/views"
+Did you mean?  active_storage/blobs/blob
+               action_text/contents/content
+               layouts/action_text/contents/content
+               action_text/attachment_galleries/attachment_gallery
+               /table
+               action_text/attachables/missing_attachable:
+  app/views/users/index.html.erb:5
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/4a3502bc8cd9b341/variables" for ::1 at 2023-06-11 10:20:06 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:21:40 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 3116)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3204)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 4068)
+
+
+
+ActionView::MissingTemplate - Missing partial shared/_table with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/asmaagamal/Desktop/APP ACADEMY/c_p/pract_project/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.4.0/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.5/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.5/app/views"
+Did you mean?  active_storage/blobs/blob
+               action_text/contents/content
+               layouts/action_text/contents/content
+               action_text/attachment_galleries/attachment_gallery
+               /table
+               action_text/attachables/missing_attachable:
+  app/views/users/index.html.erb:5
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/d0798b62e10772bd/variables" for ::1 at 2023-06-11 10:21:40 -0400
+  [1m[36mUser Load (10.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:21:41 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2940)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3020)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3295)
+
+
+
+ActionView::MissingTemplate - Missing partial shared/_table with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/asmaagamal/Desktop/APP ACADEMY/c_p/pract_project/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.4.0/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.5/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.5/app/views"
+Did you mean?  active_storage/blobs/blob
+               action_text/contents/content
+               layouts/action_text/contents/content
+               action_text/attachment_galleries/attachment_gallery
+               /table
+               action_text/attachables/missing_attachable:
+  app/views/users/index.html.erb:5
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/1a34545ca8d62187/variables" for ::1 at 2023-06-11 10:21:41 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:21:42 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2935)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 3015)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 3289)
+
+
+
+ActionView::MissingTemplate - Missing partial shared/_table with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/asmaagamal/Desktop/APP ACADEMY/c_p/pract_project/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.4.0/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.5/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.5/app/views"
+Did you mean?  active_storage/blobs/blob
+               action_text/contents/content
+               layouts/action_text/contents/content
+               action_text/attachment_galleries/attachment_gallery
+               /table
+               action_text/attachables/missing_attachable:
+  app/views/users/index.html.erb:5
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/85333c6c1f294be1/variables" for ::1 at 2023-06-11 10:21:42 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:21:42 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2938)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 3018)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3292)
+
+
+
+ActionView::MissingTemplate - Missing partial shared/_table with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+Searched in:
+  * "/Users/asmaagamal/Desktop/APP ACADEMY/c_p/pract_project/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/turbo-rails-1.4.0/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actiontext-7.0.5/app/views"
+  * "/Users/asmaagamal/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.5/app/views"
+Did you mean?  active_storage/blobs/blob
+               action_text/contents/content
+               layouts/action_text/contents/content
+               action_text/attachment_galleries/attachment_gallery
+               /table
+               action_text/attachables/missing_attachable:
+  app/views/users/index.html.erb:5
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/6c5054eaa14b14ca/variables" for ::1 at 2023-06-11 10:21:42 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:22:56 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered shared/_table.html.erb (Duration: 0.5ms | Allocations: 92)
+  Rendered users/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 339)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2063)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 2948)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:23:57 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered shared/_table.html.erb (Duration: 2.0ms | Allocations: 4373)
+  Rendered users/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 4617)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 4702)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 5564)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/shared/_table.html.erb:7
+  app/views/users/index.html.erb:5
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/56d165fd044d4e02/variables" for ::1 at 2023-06-11 10:23:58 -0400
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:24:45 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 2409)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2498)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 3369)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <h1>all users</h1>
+<%= render "shared/table" user: @user %>:
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/62ab3f2671a6ab80/variables" for ::1 at 2023-06-11 10:24:45 -0400
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:24:51 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 2371)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2452)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2728)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <h1>all users</h1>
+<%= render "shared/table" user: @user %>:
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/4ebec240c68943ef/variables" for ::1 at 2023-06-11 10:24:51 -0400
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:25:21 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 2411)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2500)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3364)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <%
+=begin%>
+ <h1>all users</h1> 
+<%
+=end%>
+<%= render "shared/table" user: @user %>:
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/15e18d8bfe14510d/variables" for ::1 at 2023-06-11 10:25:21 -0400
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:25:37 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 2388)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2477)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 3342)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check 
+<%= render "shared/table" user: @user %>:
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/6faee3665872e361/variables" for ::1 at 2023-06-11 10:25:37 -0400
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:26:33 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered shared/_table.html.erb (Duration: 2.4ms | Allocations: 4371)
+  Rendered users/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 4618)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 4703)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 5570)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/shared/_table.html.erb:7
+  app/views/users/index.html.erb:5
+  app/controllers/users_controller.rb:4:in `index'
+
+Started POST "/__better_errors/b74be90e76c71457/variables" for ::1 at 2023-06-11 10:26:33 -0400
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ (eval):72:in `block in render'
+Started GET "/users" for ::1 at 2023-06-11 10:28:41 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_table.html.erb:7
+  Rendered shared/_table.html.erb (Duration: 1.9ms | Allocations: 889)
+  Rendered users/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1135)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 2863)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.2ms | Allocations: 3742)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:29:44 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_table.html.erb:7
+  Rendered shared/_table.html.erb (Duration: 2.5ms | Allocations: 885)
+  Rendered users/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1126)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 2822)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.3ms | Allocations: 3695)
+
+
+Started GET "/users/1" for ::1 at 2023-06-11 10:29:49 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 2351)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2431)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 3248)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <%render "shared/table" users:@user%>:
+  app/controllers/users_controller.rb:9:in `show'
+
+Started POST "/__better_errors/fdf396a6f2707557/variables" for ::1 at 2023-06-11 10:29:49 -0400
+Started GET "/users/1" for ::1 at 2023-06-11 10:30:08 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 2376)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2465)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 3885)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <%render "shared/table" user:@user%>:
+  app/controllers/users_controller.rb:9:in `show'
+
+Started POST "/__better_errors/5dc60a8e92791e98/variables" for ::1 at 2023-06-11 10:30:08 -0400
+Started GET "/users/1" for ::1 at 2023-06-11 10:30:10 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 2359)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2440)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms | Allocations: 3270)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <%render "shared/table" user:@user%>:
+  app/controllers/users_controller.rb:9:in `show'
+
+Started POST "/__better_errors/4b03b93c873acb3c/variables" for ::1 at 2023-06-11 10:30:10 -0400
+Started GET "/users/1" for ::1 at 2023-06-11 10:30:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 2362)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 2443)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms | Allocations: 3272)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <%render "shared/table" user:@user%>:
+  app/controllers/users_controller.rb:9:in `show'
+
+Started POST "/__better_errors/f4dcb417b8b4e3f0/variables" for ::1 at 2023-06-11 10:30:13 -0400
+Started GET "/users/1" for ::1 at 2023-06-11 10:31:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 2297)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2386)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 10.4ms | Allocations: 7645)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <%render "shared/table" users:@users%>:
+  app/controllers/users_controller.rb:9:in `show'
+
+Started POST "/__better_errors/25529041ac74113d/variables" for ::1 at 2023-06-11 10:31:39 -0400
+Started GET "/users/1" for ::1 at 2023-06-11 10:31:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 2359)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 2440)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms | Allocations: 3269)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <%render "shared/table" users:@users%>:
+  app/controllers/users_controller.rb:9:in `show'
+
+Started POST "/__better_errors/9bd8bd7fe82c0ac5/variables" for ::1 at 2023-06-11 10:31:40 -0400
+Started GET "/users/1" for ::1 at 2023-06-11 10:31:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2359)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 2440)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.6ms | Allocations: 3269)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <%render "shared/table" users:@users%>:
+  app/controllers/users_controller.rb:9:in `show'
+
+Started POST "/__better_errors/462ff468899eb745/variables" for ::1 at 2023-06-11 10:31:41 -0400
+Started GET "/users/1" for ::1 at 2023-06-11 10:38:47 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 2301)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 2390)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 7.4ms | Allocations: 10348)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <%render "shared/table" user:@user%>:
+  app/controllers/users_controller.rb:9:in `show'
+
+Started POST "/__better_errors/623512b992589cf6/variables" for ::1 at 2023-06-11 10:38:48 -0400
+Started GET "/users/1" for ::1 at 2023-06-11 10:39:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered shared/_table.html.erb (Duration: 6.0ms | Allocations: 7320)
+  Rendered users/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 7564)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 7649)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms | Allocations: 9068)
+
+
+
+NameError - undefined local variable or method `users' for #<ActionView::Base:0x00000000030e80>
+Did you mean?  user
+               @user:
+  app/views/shared/_table.html.erb:7
+  app/views/users/show.html.erb:1
+  app/controllers/users_controller.rb:9:in `show'
+
+Started POST "/__better_errors/b7358c287c90d52b/variables" for ::1 at 2023-06-11 10:39:53 -0400
+Started GET "/users/1" for ::1 at 2023-06-11 10:41:18 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered shared/_table.html.erb (Duration: 0.4ms | Allocations: 244)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 489)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2229)
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 3679)
+
+
+Started GET "/users/2" for ::1 at 2023-06-11 10:41:31 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1433)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=2:
+  app/controllers/users_controller.rb:8:in `show'
+
+Started POST "/__better_errors/3fe54c0dc047812e/variables" for ::1 at 2023-06-11 10:41:31 -0400
+Started GET "/users/3" for ::1 at 2023-06-11 10:41:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.6ms | Allocations: 1450)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=3:
+  app/controllers/users_controller.rb:8:in `show'
+
+Started POST "/__better_errors/5ebb9ec48d39e858/variables" for ::1 at 2023-06-11 10:41:40 -0400
+Started PATCH "/users" for ::1 at 2023-06-11 10:41:52 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/users"):
+  
+Started GET "/users" for ::1 at 2023-06-11 10:41:57 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"name"=>"asmaa", "age"=>"27"}}
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_table.html.erb:8
+  Rendered shared/_table.html.erb (Duration: 2.5ms | Allocations: 943)
+  Rendered users/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1110)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 2404)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.4ms | Allocations: 2746)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:42:22 -0400
+Processing by UsersController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_table.html.erb:8
+  Rendered shared/_table.html.erb (Duration: 1.9ms | Allocations: 639)
+  Rendered users/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 703)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 1974)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 2215)
+
+
+Started GET "/users/4" for ::1 at 2023-06-11 10:42:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered shared/_table.html.erb (Duration: 0.1ms | Allocations: 13)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 77)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 1386)
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.3ms | Allocations: 2132)
+
+
+Started GET "/users/5" for ::1 at 2023-06-11 10:42:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered shared/_table.html.erb (Duration: 0.1ms | Allocations: 13)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 77)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1386)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 2104)
+
+
+Started GET "/users/6" for ::1 at 2023-06-11 10:42:50 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered shared/_table.html.erb (Duration: 0.1ms | Allocations: 13)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 77)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1389)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 2107)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:42:55 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_table.html.erb:8
+  Rendered shared/_table.html.erb (Duration: 1.3ms | Allocations: 639)
+  Rendered users/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 703)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 2038)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms | Allocations: 2271)
+
+
+Started GET "/users" for ::1 at 2023-06-11 10:43:45 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_table.html.erb:8
+  Rendered shared/_table.html.erb (Duration: 2.5ms | Allocations: 961)
+  Rendered users/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1202)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 2931)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.3ms | Allocations: 3780)
+
+
+Started GET "/users/1" for ::1 at 2023-06-11 10:43:59 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered shared/_table.html.erb (Duration: 0.4ms | Allocations: 235)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 399)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1696)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 2519)
+
+
